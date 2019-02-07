@@ -1,0 +1,12 @@
+language: objective-c
+osx_image: xcode10.1
+
+install:
+  - gem install xcpretty
+
+script:
+- xcodebuild clean build test -scheme neovmUtils-Example -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1' -sdk iphonesimulator12.1 CODE_SIGNING_REQUIRED=NO -configuration Debug ONLY_ACTIVE_ARCH=YES ENABLE_TESTABILITY=YES -enableCodeCoverage YES | xcpretty -c
+- pod lib lint
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -cF ios -J neovmUtils

@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/Particles.svg?style=flat)](https://cocoapods.org/pods/Particles)
 [![Platform](https://img.shields.io/cocoapods/p/Particles.svg?style=flat)](https://cocoapods.org/pods/Particles)
 
-Particles is a 
+Particles is a native swift adaption of [particles.js](https://github.com/VincentGarreau/particles.js/) and inspired by [this stackoverflow question](https://stackoverflow.com/questions/43740338/swift-how-to-convert-a-particle-network-js-animation-to-ios).
 
 ## Installation
 
@@ -21,8 +21,11 @@ pod 'Particles'
 
 You must import the `Particles` pod.
 
-```
+```swift
 import Particles
+
+let particlesView = ParticlesView(frame: view.frame)
+view.addSubview(particlesView)
 ```
 
 ## License

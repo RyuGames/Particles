@@ -42,6 +42,7 @@ public class ParticlesView: UIView {
 
     public var density: ParticleDensity = .extraLight {
         didSet {
+            createParticles()
             setNeedsLayout()
         }
     }
@@ -62,21 +63,32 @@ public class ParticlesView: UIView {
         return (CGFloat(arc4random_uniform(upperBound))) / CGFloat(upperBound);
     }
 
+    private func createParticles() {
+        let totalSize: CGFloat = bounds.width * bounds.height
+        let particleCount: Int = Int(totalSize / density.rawValue)
+        let currentCount = particles.count
+
+        if currentCount > particleCount {
+            let toRemove = currentCount - particleCount
+            particles.removeLast(toRemove)
+        } else if currentCount < particleCount {
+            let toAdd = particleCount - currentCount
+            for _ in 0..<toAdd {
+                let position = CGPoint(x: bounds.width * randomValue(), y: bounds.height * randomValue())
+                let speed = CGPoint(x: randomValue() * 2 - 1, y: randomValue() * 2 - 1)
+                let particle = Particle(position: position, speed: speed)
+                particles.append(particle)
+            }
+        }
+    }
+
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         clearsContextBeforeDrawing = true
         contentMode = .redraw
         clipsToBounds = false
 
-        let totalSize: CGFloat = bounds.width * bounds.height
-        let particleCount: Int = Int(totalSize / density.rawValue)
-
-        for _ in 0..<particleCount {
-            let position = CGPoint(x: bounds.width * randomValue(), y: bounds.height * randomValue())
-            let speed = CGPoint(x: randomValue() * 2 - 1, y: randomValue() * 2 - 1)
-            let particle = Particle(position: position, speed: speed)
-            particles.append(particle)
-        }
+        createParticles()
 
         let displayLink = CADisplayLink(target: self, selector: #selector(update))
         displayLink.add(to: .main, forMode: .default)
@@ -91,7 +103,9 @@ public class ParticlesView: UIView {
         } else {
             backgroundColor = bgColor
         }
-
+        ctx.setFillColor(particlesColor.cgColor)
+        ctx.setStrokeColor(particlesColor.cgColor)
+        ctx.setLineWidth(2)
         let count = particles.count
         for i in 0..<count {
             let particle = particles[i]
@@ -107,18 +121,15 @@ public class ParticlesView: UIView {
             particle.position.y += particle.speed.y;
 
             ctx.beginPath()
-            ctx.setFillColor(particlesColor.cgColor)
             ctx.addArc(center: particle.position, radius: 3.0, startAngle: 0, endAngle: .pi * 2, clockwise: false)
             ctx.fillPath()
             ctx.beginPath()
-            ctx.setStrokeColor(particlesColor.cgColor)
             var j = count - 1
             while (j > i){
                 let particle2 = particles[j]
                 let dist = hypot(particle.position.x - particle2.position.x, particle.position.y - particle2.position.y)
                 if (dist < 100) {
                     ctx.setAlpha(1 - (dist > 100 ? 0.7 : dist / 150))
-                    ctx.setLineWidth(2)
                     ctx.move(to: CGPoint(x: 0.5 + particle.position.x, y: 0.5 + particle.position.y))
                     ctx.addLine(to: CGPoint(x: 0.5 + particle2.position.x, y: 0.5 + particle2.position.y))
                 }

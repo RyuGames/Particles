@@ -46,6 +46,8 @@ The `ParticleDensity` enum has five cases:
 .extraDense
 ```
 
+ `bgColor`, `particlesColor` and `density` can be changed after initializaiton. Changing density will not cause the particles to be relayed out, but will either add or remove the needed amount of particles based on the new `density`. 
+
 ## Example
 
 An example project is available in the ParticlesExample target to demonstrate the capabilities.

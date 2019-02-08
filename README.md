@@ -28,6 +28,24 @@ let particlesView = ParticlesView(frame: view.frame)
 view.addSubview(particlesView)
 ```
 
+You can also initialize the `ParticlesView` with three optional parameters:
+```swift
+
+bgColor: UIColor = .clear                 // The color of the background of the view
+particlesColor: UIColor = .black          // The color of the particles and the lines connecting them
+density: ParticleDensity = .extraLight    // How densely packed the view is with particles
+
+```
+
+`ParticleDensity` has five cases:
+```swift
+.extraLight
+.light
+.normal
+.dense
+.extraDense
+```
+
 ## Example
 
 An example is available in the ParticlesExample target.

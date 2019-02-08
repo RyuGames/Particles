@@ -31,13 +31,13 @@ view.addSubview(particlesView)
 You can also initialize the `ParticlesView` with three optional parameters:
 ```swift
 
-bgColor: UIColor = .clear                 // The color of the background of the view
-particlesColor: UIColor = .black          // The color of the particles and the lines connecting them
-density: ParticleDensity = .extraLight    // How densely packed the view is with particles
+var bgColor: UIColor = .clear                 // The color of the background of the view
+var particlesColor: UIColor = .black          // The color of the particles and the lines connecting them
+var density: ParticleDensity = .extraLight    // How densely packed the view is with particles
 
 ```
 
-`ParticleDensity` has five cases:
+The `ParticleDensity` enum has five cases:
 ```swift
 .extraLight
 .light
@@ -50,11 +50,11 @@ density: ParticleDensity = .extraLight    // How densely packed the view is with
 
 An example project is available in the ParticlesExample target to demonstrate the capabilities.
 
-The default particles look is this:
+The default `ParticlesView` look like this (with the black background and white particles color):
 
 ![defaultparticles](https://user-images.githubusercontent.com/10342911/52456613-62df9d00-2b0a-11e9-9471-24d2e0dbd95e.png)
 
-It can be greatly customized, such as like this:
+It can be customized to your specific liking, such as like this (with a blue background and red particles color):
 
 ![customparticles](https://user-images.githubusercontent.com/10342911/52456612-61ae7000-2b0a-11e9-8839-e72f09e5f6b9.png)
 

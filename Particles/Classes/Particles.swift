@@ -1,21 +1,28 @@
 //
 //  Particles.swift
 //
-//  Created by Wyatt Mufson on 2/7/19.
+//  Created by Ryu Blockchain Technologies, Inc on 2/7/9.
+//  Copyright © 2019 Ryu Blockchain Technologies, Inc. All rights reserved.
 //
 
 import UIKit
 
-private struct Particle {
-    var position: CGPoint
-    var speed : CGPoint
+private class Particle: NSObject {
+    var position: CGPoint!
+    var speed : CGPoint!
+    init(position: CGPoint, speed: CGPoint) {
+        super.init()
+        self.position = position
+        self.speed = speed
+    }
 }
 
 public enum ParticleDensity: CGFloat {
-    case minimum = 1
-    case light = 100
-    case normal = 500
-    case heavy = 1000
+    case extraLight = 7000
+    case light = 6000
+    case normal = 5000
+    case dense = 3000
+    case extraDense = 2000
 }
 
 public class ParticlesView: UIView {
@@ -33,7 +40,7 @@ public class ParticlesView: UIView {
         }
     }
 
-    public var density: ParticleDensity = .minimum {
+    public var density: ParticleDensity = .extraLight {
         didSet {
             setNeedsLayout()
         }
@@ -43,7 +50,7 @@ public class ParticlesView: UIView {
         setNeedsDisplay()
     }
 
-    convenience init(frame: CGRect, bgColor: UIColor, particlesColor: UIColor, density: ParticleDensity) {
+    convenience init(frame: CGRect, bgColor: UIColor = .clear, particlesColor: UIColor = .black, density: ParticleDensity = .extraLight) {
         self.init(frame: frame)
         self.bgColor = bgColor
         self.particlesColor = particlesColor
@@ -72,26 +79,22 @@ public class ParticlesView: UIView {
         }
 
         let displayLink = CADisplayLink(target: self, selector: #selector(update))
-        displayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
+        displayLink.add(to: .main, forMode: .default)
     }
 
-    private func setBackground(ctx: CGContext, rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
+        super.draw(rect)
+        let ctx = UIGraphicsGetCurrentContext()!
         if bgColor != .clear {
             ctx.setFillColor(bgColor.cgColor)
             ctx.fill(rect)
         } else {
             backgroundColor = bgColor
         }
-    }
-
-    override public func draw(_ rect: CGRect) {
-        super.draw(rect)
-        let ctx = UIGraphicsGetCurrentContext()!
-        setBackground(ctx: ctx, rect: rect)
 
         let count = particles.count
         for i in 0..<count {
-            var particle = particles[i]
+            let particle = particles[i]
             if (particle.position.x > rect.size.width + 50 || particle.position.x < -50) {
                 particle.speed.x = -particle.speed.x;
             }
@@ -110,11 +113,11 @@ public class ParticlesView: UIView {
             ctx.beginPath()
             ctx.setStrokeColor(particlesColor.cgColor)
             var j = count - 1
-            while (j > i ){
+            while (j > i){
                 let particle2 = particles[j]
                 let dist = hypot(particle.position.x - particle2.position.x, particle.position.y - particle2.position.y)
                 if (dist < 100) {
-                    ctx.setAlpha(1 - (dist > 100 ? 0.8 : dist / 150))
+                    ctx.setAlpha(1 - (dist > 100 ? 0.7 : dist / 150))
                     ctx.setLineWidth(2)
                     ctx.move(to: CGPoint(x: 0.5 + particle.position.x, y: 0.5 + particle.position.y))
                     ctx.addLine(to: CGPoint(x: 0.5 + particle2.position.x, y: 0.5 + particle2.position.y))

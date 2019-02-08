@@ -1,19 +1,37 @@
+//
+//  Tests.swift
+//  Particles_Tests
+//
+//  Created by Ryu Blockchain Technologies, Inc on 2/7/9.
+//  Copyright © 2019 Ryu Blockchain Technologies, Inc. All rights reserved.
+//
+
 import XCTest
 
 class Tests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testIntialize() {
+        let frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        let bgColor : UIColor = .black
+        let particlesColor : UIColor = .red
+        let density : ParticleDensity = .extraDense
+        let p = ParticlesView(frame: frame, bgColor: bgColor, particlesColor: particlesColor, density: density)
+        let f = p.frame
+        let b = p.bgColor
+        let c = p.particlesColor
+        let d = p.density
+        XCTAssertEqual(f, frame)
+        XCTAssertEqual(b, bgColor)
+        XCTAssertEqual(c, particlesColor)
+        XCTAssertEqual(d, density)
+        XCTAssertNotNil(p)
     }
 }

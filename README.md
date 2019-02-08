@@ -28,6 +28,10 @@ let particlesView = ParticlesView(frame: view.frame)
 view.addSubview(particlesView)
 ```
 
+## Example
+
+An example is available in the ParticlesExample target.
+
 ## License
 
 `Particles` is available under the [MIT license](./LICENSE).

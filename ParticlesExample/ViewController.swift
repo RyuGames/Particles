@@ -48,4 +48,16 @@ class ViewController: UIViewController {
         p.density = .extraDense
         p.particlesColor = .darkGray
     }
+
+    @IBAction func quickTest(_ sender: Any) {
+        p.speed = .quick
+    }
+
+    @IBAction func normalSpeedTest(_ sender: Any) {
+        p.speed = .normal
+    }
+
+    @IBAction func slowTest(_ sender: Any) {
+        p.speed = .slow
+    }
 }

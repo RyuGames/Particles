@@ -34,6 +34,7 @@ You can also initialize the `ParticlesView` with three optional parameters:
 var bgColor: UIColor = .clear                 // The color of the background of the view
 var particlesColor: UIColor = .black          // The color of the particles and the lines connecting them
 var density: ParticleDensity = .extraLight    // How densely packed the view is with particles
+var speed: ParticleSpeed = .normal            // How fast the particles are moving
 
 ```
 
@@ -46,7 +47,14 @@ The `ParticleDensity` enum has five cases:
 .extraDense
 ```
 
- `bgColor`, `particlesColor` and `density` can be changed after initializaiton. Changing density will not cause the particles to be relayed out, but will either add or remove the needed amount of particles based on the new `density`. 
+The `ParticleSpeed` enum has three cases:
+```swift
+.quick
+.normal
+.slow
+```
+
+ `bgColor`, `particlesColor`, `density` and `speed` can be changed after initializaiton. Changing density will not cause the particles to be relayed out, but will either add or remove the needed amount of particles based on the new `density`.
 
 ## Example
 

@@ -23,15 +23,18 @@ class Tests: XCTestCase {
         let bgColor : UIColor = .black
         let particlesColor : UIColor = .red
         let density : ParticleDensity = .extraDense
-        let p = ParticlesView(frame: frame, bgColor: bgColor, particlesColor: particlesColor, density: density)
+        let speed : ParticleSpeed = .quick
+        let p = ParticlesView(frame: frame, bgColor: bgColor, particlesColor: particlesColor, density: density, speed: speed)
         let f = p.frame
         let b = p.bgColor
         let c = p.particlesColor
         let d = p.density
+        let s = p.speed
         XCTAssertEqual(f, frame)
         XCTAssertEqual(b, bgColor)
         XCTAssertEqual(c, particlesColor)
         XCTAssertEqual(d, density)
+        XCTAssertEqual(s, speed)
         XCTAssertNotNil(p)
     }
 }

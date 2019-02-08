@@ -34,5 +34,11 @@ class ParticlesExampleUITests: XCTestCase {
         XCTAssertNotNil(app.otherElements["ParticlesView"])
         app.buttons["D + PC"].tap()
         XCTAssertNotNil(app.otherElements["ParticlesView"])
+        app.buttons["Quick"].tap()
+        XCTAssertNotNil(app.otherElements["ParticlesView"])
+        app.buttons["Normal"].tap()
+        XCTAssertNotNil(app.otherElements["ParticlesView"])
+        app.buttons["Slow"].tap()
+        XCTAssertNotNil(app.otherElements["ParticlesView"])
     }
 }

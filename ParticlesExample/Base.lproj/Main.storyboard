@@ -60,28 +60,60 @@
                                     <action selector="densityTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O4Z-f0-uHO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTE-46-jSq">
+                                <rect key="frame" x="322" y="562.5" width="33" height="84.5"/>
+                                <state key="normal" title="Slow"/>
+                                <connections>
+                                    <action selector="slowTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vs3-Ko-Vp6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeW-IC-KSw">
+                                <rect key="frame" x="305" y="458" width="50" height="84.5"/>
+                                <state key="normal" title="Normal"/>
+                                <connections>
+                                    <action selector="normalSpeedTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RtB-0R-5N0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1p9-Sw-hKu">
+                                <rect key="frame" x="315" y="353.5" width="40" height="84.5"/>
+                                <state key="normal" title="Quick"/>
+                                <connections>
+                                    <action selector="quickTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IK7-f6-f05"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="JeW-IC-KSw" firstAttribute="trailing" secondItem="1p9-Sw-hKu" secondAttribute="trailing" id="0eN-0l-UYQ"/>
                             <constraint firstItem="0Ea-fM-Bym" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3YM-cR-5Ux"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1p9-Sw-hKu" secondAttribute="trailing" constant="20" id="6pb-XX-w0C"/>
                             <constraint firstItem="5hJ-Vt-Pas" firstAttribute="height" secondItem="0Ea-fM-Bym" secondAttribute="height" id="8oY-9E-iz3"/>
                             <constraint firstItem="aQp-bF-icY" firstAttribute="leading" secondItem="0Ea-fM-Bym" secondAttribute="leading" id="965-87-gYm"/>
                             <constraint firstItem="7Ej-rV-Q3c" firstAttribute="height" secondItem="0Ea-fM-Bym" secondAttribute="height" id="Fga-Wz-fOh"/>
                             <constraint firstItem="7Ej-rV-Q3c" firstAttribute="top" secondItem="Xpn-SW-Jw6" secondAttribute="bottom" constant="20" id="Ghb-2X-sWz"/>
+                            <constraint firstItem="JeW-IC-KSw" firstAttribute="height" secondItem="1p9-Sw-hKu" secondAttribute="height" id="GyY-qQ-4tR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RTE-46-jSq" secondAttribute="trailing" constant="20" id="JIw-iK-Zad"/>
                             <constraint firstItem="7Ej-rV-Q3c" firstAttribute="leading" secondItem="0Ea-fM-Bym" secondAttribute="leading" id="LpG-VG-1nD"/>
                             <constraint firstItem="Xpn-SW-Jw6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NVo-B8-1lg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JeW-IC-KSw" secondAttribute="trailing" constant="20" id="S92-4c-koY"/>
                             <constraint firstItem="aQp-bF-icY" firstAttribute="height" secondItem="0Ea-fM-Bym" secondAttribute="height" id="SWC-uW-ESs"/>
                             <constraint firstItem="0Ea-fM-Bym" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Sj2-M3-SpS"/>
+                            <constraint firstItem="RTE-46-jSq" firstAttribute="height" secondItem="1p9-Sw-hKu" secondAttribute="height" id="UnD-VA-GEG"/>
                             <constraint firstItem="5hJ-Vt-Pas" firstAttribute="leading" secondItem="0Ea-fM-Bym" secondAttribute="leading" id="VJg-xM-PY4"/>
+                            <constraint firstItem="JeW-IC-KSw" firstAttribute="centerY" secondItem="gDC-8l-Q0h" secondAttribute="centerY" id="WHF-wX-ORB"/>
                             <constraint firstItem="Xpn-SW-Jw6" firstAttribute="top" secondItem="5hJ-Vt-Pas" secondAttribute="bottom" constant="20" id="WPl-04-z7a"/>
+                            <constraint firstItem="RTE-46-jSq" firstAttribute="trailing" secondItem="1p9-Sw-hKu" secondAttribute="trailing" id="Ypc-Xw-ap3"/>
                             <constraint firstItem="Xpn-SW-Jw6" firstAttribute="leading" secondItem="0Ea-fM-Bym" secondAttribute="leading" id="ZLu-qa-1oL"/>
                             <constraint firstItem="Xpn-SW-Jw6" firstAttribute="height" secondItem="0Ea-fM-Bym" secondAttribute="height" id="ZPz-0z-fPd"/>
                             <constraint firstItem="gDC-8l-Q0h" firstAttribute="height" secondItem="0Ea-fM-Bym" secondAttribute="height" id="ZqB-Aj-TPt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aQp-bF-icY" secondAttribute="bottom" constant="20" id="aRv-yQ-JPK"/>
                             <constraint firstItem="gDC-8l-Q0h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aU6-yE-srS"/>
                             <constraint firstItem="aQp-bF-icY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="agW-Ix-en6"/>
+                            <constraint firstItem="1p9-Sw-hKu" firstAttribute="centerY" secondItem="7Ej-rV-Q3c" secondAttribute="centerY" id="bcX-7G-FLx"/>
                             <constraint firstItem="5hJ-Vt-Pas" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hoi-hf-YOH"/>
                             <constraint firstItem="aQp-bF-icY" firstAttribute="top" secondItem="gDC-8l-Q0h" secondAttribute="bottom" constant="20" id="kYt-vT-Jiw"/>
+                            <constraint firstItem="RTE-46-jSq" firstAttribute="centerY" secondItem="aQp-bF-icY" secondAttribute="centerY" id="q9y-WP-n0C"/>
+                            <constraint firstItem="RTE-46-jSq" firstAttribute="height" secondItem="aQp-bF-icY" secondAttribute="height" id="qfM-eY-mpb"/>
                             <constraint firstItem="gDC-8l-Q0h" firstAttribute="leading" secondItem="0Ea-fM-Bym" secondAttribute="leading" id="wW4-S8-942"/>
                             <constraint firstItem="5hJ-Vt-Pas" firstAttribute="top" secondItem="0Ea-fM-Bym" secondAttribute="bottom" constant="20" id="xF3-BU-hak"/>
                             <constraint firstItem="gDC-8l-Q0h" firstAttribute="top" secondItem="7Ej-rV-Q3c" secondAttribute="bottom" constant="20" id="xpA-IU-7V1"/>

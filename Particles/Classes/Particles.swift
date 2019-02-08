@@ -25,6 +25,12 @@ public enum ParticleDensity: CGFloat {
     case extraDense = 2000
 }
 
+public enum ParticleSpeed: CGFloat {
+    case quick = 2.5
+    case normal = 1
+    case slow = 0.4
+}
+
 public class ParticlesView: UIView {
     fileprivate var particles: [Particle] = []
 
@@ -47,18 +53,21 @@ public class ParticlesView: UIView {
         }
     }
 
-    @objc func update(){
+    public var speed: ParticleSpeed = .normal
+
+    @objc func update() {
         setNeedsDisplay()
     }
 
-    convenience init(frame: CGRect, bgColor: UIColor = .clear, particlesColor: UIColor = .black, density: ParticleDensity = .extraLight) {
+    convenience init(frame: CGRect, bgColor: UIColor = .clear, particlesColor: UIColor = .black, density: ParticleDensity = .extraLight, speed: ParticleSpeed = .normal) {
         self.init(frame: frame)
         self.bgColor = bgColor
         self.particlesColor = particlesColor
         self.density = density
+        self.speed = speed
     }
 
-    private func randomValue () -> CGFloat {
+    private func randomValue() -> CGFloat {
         let upperBound : UInt32 = 1000
         return (CGFloat(arc4random_uniform(upperBound))) / CGFloat(upperBound);
     }
@@ -117,15 +126,15 @@ public class ParticlesView: UIView {
                 particle.speed.y = -particle.speed.y;
             }
 
-            particle.position.x += particle.speed.x;
-            particle.position.y += particle.speed.y;
+            particle.position.x += speed.rawValue * particle.speed.x;
+            particle.position.y += speed.rawValue * particle.speed.y;
 
             ctx.beginPath()
             ctx.addArc(center: particle.position, radius: 3.0, startAngle: 0, endAngle: .pi * 2, clockwise: false)
             ctx.fillPath()
             ctx.beginPath()
             var j = count - 1
-            while (j > i){
+            while (j > i) {
                 let particle2 = particles[j]
                 let dist = hypot(particle.position.x - particle2.position.x, particle.position.y - particle2.position.y)
                 if (dist < 100) {

@@ -51,10 +51,12 @@ density: ParticleDensity = .extraLight    // How densely packed the view is with
 An example project is available in the ParticlesExample target to demonstrate the capabilities.
 
 The default particles look is this:
-![defaultparticles](https://user-images.githubusercontent.com/10342911/52456522-fe244280-2b09-11e9-9000-ba2cd43912e9.png)
+
+![defaultparticles](https://user-images.githubusercontent.com/10342911/52456613-62df9d00-2b0a-11e9-9471-24d2e0dbd95e.png)
 
 It can be greatly customized, such as like this:
-![customparticles](https://user-images.githubusercontent.com/10342911/52456566-29a72d00-2b0a-11e9-8818-1869f2ce608e.png)
+
+![customparticles](https://user-images.githubusercontent.com/10342911/52456612-61ae7000-2b0a-11e9-8839-e72f09e5f6b9.png)
 
 ## License
 

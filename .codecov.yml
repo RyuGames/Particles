@@ -10,3 +10,5 @@ coverage:
 
   ignore:
     - Tests/*
+    - ParticlesExample/*
+    - ParticlesExampleUITests/*

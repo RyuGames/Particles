@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Particles'
-  s.version          = '0.0.1'
+  s.version          = '0.1.0'
   s.summary          = 'A native swift framework for creating particles.'
 
   s.homepage         = 'https://github.com/Ryucoin/Particles'

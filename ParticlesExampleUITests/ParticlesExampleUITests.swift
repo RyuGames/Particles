@@ -10,17 +10,17 @@ import XCTest
 
 class ParticlesExampleUITests: XCTestCase {
     var app: XCUIApplication!
-    
+
     override func setUp() {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testBasicDisplay() {
         app.buttons["Density"].tap()
         XCTAssertNotNil(app.otherElements["ParticlesView"])

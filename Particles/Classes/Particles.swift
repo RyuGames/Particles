@@ -59,7 +59,7 @@ public class ParticlesView: UIView {
         setNeedsDisplay()
     }
 
-    convenience init(frame: CGRect, bgColor: UIColor = .clear, particlesColor: UIColor = .black, density: ParticleDensity = .extraLight, speed: ParticleSpeed = .normal) {
+    public convenience init(frame: CGRect, bgColor: UIColor = .clear, particlesColor: UIColor = .black, density: ParticleDensity = .extraLight, speed: ParticleSpeed = .normal) {
         self.init(frame: frame)
         self.bgColor = bgColor
         self.particlesColor = particlesColor
